@@ -1,0 +1,70 @@
+{% set palette = site.params.palettes[site.params.palette].sass %}
+
+$color_default: {{ palette.default }};
+$color_light: {{ palette.light }};
+$color_medium: {{ palette.medium }};
+$color_dark: {{ palette.dark }};
+$color_active: {{ palette.active }};
+$color_active_light: {{ palette.active_light }};
+$color_active_medium: {{ palette.active_medium }};
+$color_active_dark: {{ palette.active_dark }};
+$color_dark_grey: {{ palette.dark_grey }};
+$color_light_grey: {{ palette.light_grey }};
+
+$background_images_cart: url({{ palette.bg_image_cart }});
+
+$font_size_small: 18px;
+$font_size_xxlarge: 64px;
+$font_size_xlarge: 48px;
+$font_size_large: 32px;
+$font_size_medium: 24px;
+$font_size_regular: 20px;
+$font_size_small: 16px;
+
+$font_family_primairy: 'Open Sans', sans-serif;
+$font_family_secondary: 'Lato', sans-serif;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+// Global styles
+@import "imports/reset";
+@import "imports/mixins";
+@import "imports/spacing";
+@import "imports/fonts";
+@import "imports/links";
+@import "imports/buttons";
+
+// Components
+@import "imports/nav";
+@import "imports/content";
+@import "imports/product_grid";
+@import "imports/product";
+@import "imports/store";
+@import "imports/bulletpoints_section";
+@import "imports/page";
+@import "imports/hero";
+@import "imports/faq";
+@import "imports/hamburger";
+@import "imports/static_header";
+@import "imports/quotes";
+@import "imports/footer";
+@import "imports/promo";
+@import "imports/snipcart";

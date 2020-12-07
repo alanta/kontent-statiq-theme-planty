@@ -1,0 +1,10 @@
+{% set product_page = include_dict.product_page %}
+<li class="product__card">
+    <figure class="product__card__image">
+        {% set include_dict = {'image': product_page.params.default_thumbnail_image, 'alt': product_page.title} %}
+        {% include "picture.html" %}
+    </figure>
+    <h2 class="product__card__title">
+        {{ product_page.title }}
+    </h2>
+</li>

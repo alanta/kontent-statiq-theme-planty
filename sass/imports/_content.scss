@@ -1,0 +1,41 @@
+.content {
+    @include container-properties;
+    padding-top: 101px;
+
+    &__row {
+        @include container-item-properties;
+        margin-bottom: 50px;
+        &--direction-row { display: flex; flex-direction: row; }
+        &--full-width         { max-width: none; padding: 0; }
+        &--mb-0         { margin-bottom: 0; }
+        @include smaller-than-tablet {
+            overflow: hidden;
+        }
+    }
+
+    &__row-title {
+        color: $color_medium;
+        margin-bottom: $spacing--unit*7;
+        font-size: $font_size_large;
+
+        &--light {
+            svg path { fill: $color_light; }
+            color: $color_light;
+        }
+
+        &--dark {
+            svg path { fill: $color_dark; }
+            color: $color_dark;
+        }
+
+        &--medium {
+            svg path { fill: $color_medium; }
+            color: $color_medium;
+        }
+
+        svg {
+            margin-right: 10px;
+            fill: currentColor;
+        }
+    }
+}

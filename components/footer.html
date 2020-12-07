@@ -1,0 +1,21 @@
+{% set page = include_dict.page %}
+{% set site = include_dict.site %}
+{% set menu = site.params.main_menu %}
+<footer class="footer">
+    <div class="footer__container">
+        <a href="{{ '/' | relative_url }}">
+            {% set include_dict = {'image': site.params.logo_light, 'cssClass': 'footer__logo', 'alt': 'Planty logo'} %}
+            {% include "picture.html" %}
+        </a>
+        <ul class="footer__nav">
+            {% for item in menu %}
+            <li class="footer__nav-item">
+                <a href="{{ item.url | relative_url }}" {% if item.title == page.title %}class="footer__nav-link footer__nav-link--active" {% else %}class="footer__nav-link"{% endif %}>
+                {{ item.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="footer__legal-notice">{{site.params.footer_text}}</div>
+    </div>
+</footer>

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="site-wrapper">
+        {% set include_dict = {'page': page, 'site': site} %}
+        {% include "header.html" %}
+
+        {% block content %}{% endblock %}
+
+        {% set include_dict = {'page': page,'site': site} %}
+        {% include "footer.html" %}
+    </div>
+    <div style="display: none" id="template-params" data-api-key="{{ site.params.snipcart_api_key }}" data-templates-url="{{ 'js/snipcart-templates.vue' | relative_url }}"></div>
+{% endblock %}

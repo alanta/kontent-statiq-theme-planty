@@ -1,0 +1,10 @@
+{% extends "body.html" %}
+{% block content %}
+<main class="content{% if page.params.page_css_class %} {{page.params.page_css_class}}{%endif%}">
+    {% for section in page.params.sections %}
+    {% set include_dict = {'section': section, 'page': page, 'site': site} %}
+    {% set component = section.type | component_file %}
+    {% include component %}
+    {% endfor %}
+</main>
+{% endblock %}
