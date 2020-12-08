@@ -1,3 +1,5 @@
 public
 *.orig
 node_modules
+bin
+obj
