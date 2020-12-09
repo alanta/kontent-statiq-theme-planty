@@ -1,0 +1,25 @@
+@model Planty.Models.IPage
+@using Planty.Models
+@{
+    var site = Html.Site();
+}
+<footer class="footer">
+    <div class="footer__container">
+        <a href="@Html.GetLink("/")">
+            <planty-picture src="@site.Settings.LogoLight" cssClass="footer_logo" alt="Planty logo" />
+        </a>
+        <ul class="footer__nav">
+            @foreach( var menuItem in site.MainMenu.OfType<MenuItem>() )
+            {
+                bool isActive = Model.MenuItem.System.Codename == menuItem.System.Codename;
+            
+                <li class="nav__menu-item">
+                    <a href="@Html.GetLink(menuItem.Url)" class="footer__nav-link @(isActive?"footer__nav-link--active":"")">
+                        @menuItem.Title
+                    </a>
+                </li>
+            }
+        </ul>
+        <div class="footer__legal-notice">@string.Format(site.Settings.FooterText, DateTime.Now.Year)</div>
+    </div>
+</footer>

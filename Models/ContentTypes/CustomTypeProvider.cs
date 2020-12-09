@@ -12,9 +12,11 @@ namespace Planty.Models
             {typeof(CallToAction), "call_to_action"},
             {typeof(FeaturedProductsSection), "featured_products_section"},
             {typeof(HeroSection), "hero_section"},
+            {typeof(MenuItem), "menu_item"},
             {typeof(Page), "page"},
             {typeof(Product), "product"},
-            {typeof(PromotionSection), "promotion_section"}
+            {typeof(PromotionSection), "promotion_section"},
+            {typeof(Site), "site"}
         };
 
         public Type GetType(string contentType)

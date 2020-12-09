@@ -23,7 +23,7 @@ namespace Planty.Models
         public const string TitleCodename = "title";
 
         public IEnumerable<ITaxonomyTerm> Category { get; set; }
-        public string Description { get; set; }
+        public IRichTextContent Description { get; set; }
         public IEnumerable<IAsset> Image { get; set; }
         public decimal? Price { get; set; }
         public string ProductId { get; set; }

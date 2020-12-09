@@ -1,0 +1,7 @@
+﻿@model Planty.Models.HeroSection
+
+<section class="hero" style="background-image: url(@Html.GetLink(Model.BackgroundImage.FirstOrDefault().Url))" data-id="@Model.System.Id">
+    <div class="hero__title">@Html.DisplayFor(m => m.Content)</div>
+    @Html.DisplayFor(m => m.Buttons)
+</section>
+

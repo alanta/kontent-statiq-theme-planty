@@ -14,10 +14,14 @@ namespace Planty.Models
     {
         public const string Codename = "page";
         public const string ContentCodename = "content";
+        public const string SectionCodename = "section";
+        public const string SettingsCodename = "settings";
         public const string SlugCodename = "slug";
         public const string TitleCodename = "title";
 
-        public string Content { get; set; }
+        public IRichTextContent Content { get; set; }
+        public IEnumerable<object> Section { get; set; }
+        public IEnumerable<IMultipleChoiceOption> Settings { get; set; }
         public string Slug { get; set; }
         public IContentItemSystemAttributes System { get; set; }
         public string Title { get; set; }

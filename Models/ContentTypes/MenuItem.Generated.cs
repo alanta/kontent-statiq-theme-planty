@@ -10,16 +10,14 @@ using Kentico.Kontent.Delivery.Abstractions;
 
 namespace Planty.Models
 {
-    public partial class HeroSection
+    public partial class MenuItem
     {
-        public const string Codename = "hero_section";
-        public const string BackgroundImageCodename = "background_image";
-        public const string ButtonsCodename = "buttons";
-        public const string ContentCodename = "content";
+        public const string Codename = "menu_item";
+        public const string TitleCodename = "title";
+        public const string UrlCodename = "url";
 
-        public IEnumerable<IAsset> BackgroundImage { get; set; }
-        public IRichTextContent Buttons { get; set; }
-        public IRichTextContent Content { get; set; }
         public IContentItemSystemAttributes System { get; set; }
+        public string Title { get; set; }
+        public string Url { get; set; }
     }
 }
