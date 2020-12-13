@@ -2,8 +2,9 @@
 {
     public interface IPage
     {
-        public MenuItem MenuItem { get; }
-        public bool WhiteHeader { get; }
+        public MenuItem? MenuItem { get; }
+        bool LightNavigation { get; }
+        bool LightLogo { get; }
     }
 
 }

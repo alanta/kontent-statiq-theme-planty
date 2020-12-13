@@ -9,7 +9,7 @@ namespace Planty.Pipelines
     {
         public DownloadImages()
         {
-            Dependencies.AddRange(nameof(Pages));
+            Dependencies.AddRange(nameof(Pages), nameof(Products));
             PostProcessModules = new ModuleList(
                 // pull documents from other pipelines
                 new ReplaceDocuments(Dependencies.ToArray()),

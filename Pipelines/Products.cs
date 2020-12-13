@@ -10,20 +10,20 @@ using Page = Planty.Models.Page;
 
 namespace Planty.Pipelines
 {
-    public class Pages : Pipeline
+    public class Products : Pipeline
     {
-        public Pages(IDeliveryClient deliveryClient, SiteSettings settings)
+        public Products(IDeliveryClient deliveryClient, SiteSettings settings)
         {
             Dependencies.Add(nameof(Site));
             InputModules = new ModuleList
             {
-                new Kontent<Page>(deliveryClient)
+                new Kontent<Product>(deliveryClient)
                     .WithQuery(new DepthParameter(2), new IncludeTotalCountParameter()),
                 /*new SetMetadata(nameof(Page.Tags),
                     KontentConfig.Get<Page,ITaxonomyTerm[]>(post => post.Tags?.ToArray())),
                 new SetMetadata(nameof(Page.Categories),
                     KontentConfig.Get<Page,ITaxonomyTerm[]>(post => post.Categories?.ToArray())),*/
-                new SetDestination(KontentConfig.Get((Page page) => new NormalizedPath(  page.Url == "index" ? "index.html" : $"{page.Url}/index.html"))),
+                new SetDestination(KontentConfig.Get((Product page) => new NormalizedPath( page.Url ))),
                 /*new SetMetadata(SearchIndex.SearchItemKey, Config.FromDocument((doc, ctx) =>
                 {
                     var page = doc.AsKontent<Page>();
@@ -37,7 +37,7 @@ namespace Planty.Pipelines
 
             ProcessModules = new ModuleList
             {
-                new MergeContent(new ReadFiles( "layouts/page.cshtml")),
+                new MergeContent(new ReadFiles( "layouts/product.cshtml")),
                 new RenderRazor()
                     .WithViewData(PlantyKeys.Site, Config.FromDocument((doc, ctx) =>
                     {
@@ -45,8 +45,8 @@ namespace Planty.Pipelines
                         site.Settings = settings;
                         return site;
                     }))
-                    .WithViewData(PlantyKeys.Title, KontentConfig.Get<Page,string>( p => p.Title ))
-                    .WithModel(KontentConfig.As<Page>()),
+                    .WithViewData(PlantyKeys.Title, KontentConfig.Get<Product,string>( p => p.Title ))
+                    .WithModel(KontentConfig.As<Product>()),
                 new KontentImageProcessor(),
                 //new OptimizeHtml()
             };

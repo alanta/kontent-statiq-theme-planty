@@ -14,19 +14,23 @@ namespace Planty.Models
     {
         public const string Codename = "product";
         public const string CategoryCodename = "category";
+        public const string ContentCodename = "content";
         public const string DescriptionCodename = "description";
         public const string ImageCodename = "image";
         public const string PriceCodename = "price";
         public const string ProductIdCodename = "product_id";
+        public const string SectionCodename = "section";
         public const string SettingsCodename = "settings";
         public const string SlugCodename = "slug";
         public const string TitleCodename = "title";
 
         public IEnumerable<ITaxonomyTerm> Category { get; set; }
-        public IRichTextContent Description { get; set; }
+        public IRichTextContent Content { get; set; }
+        public string Description { get; set; }
         public IEnumerable<IAsset> Image { get; set; }
         public decimal? Price { get; set; }
         public string ProductId { get; set; }
+        public IEnumerable<object> Section { get; set; }
         public IEnumerable<IMultipleChoiceOption> Settings { get; set; }
         public string Slug { get; set; }
         public IContentItemSystemAttributes System { get; set; }
