@@ -3,9 +3,6 @@ using Statiq.Common;
 using Statiq.Core;
 using Statiq.Handlebars;
 using Statiq.Sass;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Planty.Pipelines
 {

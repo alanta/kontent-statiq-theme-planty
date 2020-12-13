@@ -8,7 +8,7 @@
     <nav class="nav @(Model.WhiteHeader?"nav--light":"nav--dark")">
         <div class="nav__logo" data-dark="@site.Settings.LogoDark">
             <a href="@Html.GetLink("/")">
-                <planty-picture image="@(Model.WhiteHeader?site.Settings.LogoLight:site.Settings.LogoDark)" alt="Site Logo" cssClass="nav__logo-image" />
+                <planty-picture src="@(Model.WhiteHeader?site.Settings.LogoLight:site.Settings.LogoDark)" alt="Site Logo" css-class="nav__logo-image" />
             </a>
         </div>
         <ul class="nav__menu">
