@@ -13,18 +13,16 @@ namespace Planty.Models
     public partial class PromotionSection
     {
         public const string Codename = "promotion_section";
-        public const string CallToAction40ed566LinkUrlCodename = "call_to_action_40ed566__link_url";
-        public const string CallToAction40ed566LinkedPageCodename = "call_to_action_40ed566__linked_page";
-        public const string CallToAction40ed566SettingsCodename = "call_to_action_40ed566__settings";
-        public const string CallToAction40ed566TextCodename = "call_to_action_40ed566__text";
+        public const string CtaLinkCodename = "cta_link";
+        public const string CtaLinkedPageCodename = "cta_linked_page";
+        public const string CtaTextCodename = "cta_text";
         public const string ImageCodename = "image";
         public const string SubtitleCodename = "subtitle";
         public const string TitleCodename = "title";
 
-        public IEnumerable<object> CallToAction40ed566LinkedPage { get; set; }
-        public string CallToAction40ed566LinkUrl { get; set; }
-        public IEnumerable<IMultipleChoiceOption> CallToAction40ed566Settings { get; set; }
-        public string CallToAction40ed566Text { get; set; }
+        public string CtaLink { get; set; }
+        public IEnumerable<object> CtaLinkedPage { get; set; }
+        public string CtaText { get; set; }
         public IEnumerable<IAsset> Image { get; set; }
         public string Subtitle { get; set; }
         public IContentItemSystemAttributes System { get; set; }

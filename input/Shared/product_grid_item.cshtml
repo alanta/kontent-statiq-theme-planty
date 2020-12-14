@@ -1,3 +1,5 @@
+@using Kontent.Statiq.Html
+@using Kentico.Kontent.ImageTransformation
 @model Planty.Models.Product
 @{
     ViewData["component"] = "product-grid";
@@ -5,7 +7,7 @@
 <li class="product-grid__item">
     <a href="@Html.GetLink(Model.Url)">
         <figure class="product-grid__item-figure js-figure-link">
-            <planty-picture src="@Model.Thumbnail.Url" alt="@Model.Title" css-class="product-grid__item-image" />
+            <planty-picture src="@Model.Thumbnail?.ImageUrl().WithWidth(323).WithHeight(323).WithFitMode(ImageFitMode.Crop).Url" alt="@Model.Title" css-class="product-grid__item-image" />
             <figcaption>
                 <partial name="small_buy_button" model="Model" view-data="ViewData"/>
             </figcaption>
@@ -13,11 +15,9 @@
     </a>
     <div class="product-grid__definition">
         <a href="@Html.GetLink(Model.Url)"><h3 class="product-grid__title">@Model.Title</h3></a>
-        @* TODO : Categories
-            {% if product_page.params.category %}
-            {% set category_page = getPageByFilePath(product_page.params.category) %}
-            <span class="product-grid__category"> {{ category_page.title }} </span>
-        {% endif %}*@ 
+        @if( Model.Category.Any() ){
+            <span class="product-grid__category"> @Model.Category.First().Name </span>
+        }
         <span class="product-grid__price"><price value="Model.Price" /></span>
     </div>
 </li>

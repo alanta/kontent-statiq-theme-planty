@@ -4,5 +4,7 @@ namespace Planty.Models
     {
         public const string Title = nameof(Title);
         public const string Site = nameof(Site);
+        public const string Products = nameof(Products);
+        public const string Categories = nameof(Categories);
     }
 }

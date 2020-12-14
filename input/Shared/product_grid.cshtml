@@ -1,0 +1,11 @@
+@model Product[]
+@using Planty.Models
+@{
+    string? listCssClass = ViewData["cssClass"] as string;
+}
+
+<ul class="product-grid @listCssClass">
+    @foreach(var product in Model){
+        <partial name="product_grid_item" model="product" view-data="ViewData"/>
+    }
+</ul>

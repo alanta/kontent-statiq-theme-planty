@@ -1,0 +1,18 @@
+﻿@model Planty.Models.PromotionSection
+<section class="content__row content__row--full-width content__row--mb-0"  data-id="@Model.System.Id">
+    <div class="promo">
+        <planty-picture src="@Model.Image.First().Url" alt="@Model.Image.First().Description"/>
+
+        <div class="promo__message-container"  style="background-image: url(@Html.GetLink( Html.Site().Settings.BackgroundImageProduct))">
+            <h2 class="promo__title">@Model.Title</h2>
+            <p class="promo__subtitle">@Model.Subtitle</p>
+            @if (Model.CtaLinkedPage.Any() || !string.IsNullOrWhiteSpace(Model.CtaLink))
+            {
+                <a class="link link--light promo__link" href="@Html.LinkedPageOrUrl(Model.CtaLinkedPage, Model.CtaLink)">
+                    @Model.CtaText
+                    <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.6819 6.07886H0V7.79048H22.8139L18.2402 12.3182L19.434 13.5L26 7L19.434 0.5L18.2402 1.68182L22.6819 6.07886Z" fill="#ffffff"/></svg>
+                </a>
+            }
+        </div>
+    </div>
+</section>

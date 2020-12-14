@@ -1,0 +1,29 @@
+@model Planty.Models.StoreSection
+@{
+    var products = ViewData[Planty.Models.PlantyKeys.Products] as Planty.Models.Product[] ?? Array.Empty<Planty.Models.Product>();
+    var categories = ViewData[Planty.Models.PlantyKeys.Categories] as Planty.Models.CategoryMenuItem[] ?? Array.Empty<Planty.Models.CategoryMenuItem>();
+}
+
+<section class="content__row" data-id="@Model.System.Id">
+    <div class="content__row content__row--direction-row store__head">
+        <h1 class="store__title">All Products</h1>
+    </div>
+
+    <div class="content__row store__container">
+        <nav class="store__nav">
+            <ul class="store__nav-items">
+                @foreach (var menuItem in categories)
+                {
+                    <li class="store__nav-item">
+                        <a href="@menuItem.Url" class="store__nav-item-link @(menuItem.Active?"store__nav-item-link--active":"")">
+                            @menuItem.Title
+                        </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+        <section class="store__products">
+            <partial name="product_grid" model="@products" view-data="ViewData"/>
+        </section>
+    </div>
+</section>

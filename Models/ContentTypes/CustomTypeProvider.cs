@@ -16,7 +16,8 @@ namespace Planty.Models
             {typeof(Page), "page"},
             {typeof(Product), "product"},
             {typeof(PromotionSection), "promotion_section"},
-            {typeof(Site), "site"}
+            {typeof(Site), "site"},
+            {typeof(StoreSection), "store_section"}
         };
 
         public Type GetType(string contentType)

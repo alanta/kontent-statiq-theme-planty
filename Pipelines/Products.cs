@@ -20,9 +20,9 @@ namespace Planty.Pipelines
                 new Kontent<Product>(deliveryClient)
                     .WithQuery(new DepthParameter(2), new IncludeTotalCountParameter()),
                 /*new SetMetadata(nameof(Page.Tags),
-                    KontentConfig.Get<Page,ITaxonomyTerm[]>(post => post.Tags?.ToArray())),
-                new SetMetadata(nameof(Page.Categories),
-                    KontentConfig.Get<Page,ITaxonomyTerm[]>(post => post.Categories?.ToArray())),*/
+                    KontentConfig.Get<Page,ITaxonomyTerm[]>(post => post.Tags?.ToArray())),*/
+                new SetMetadata(nameof(Product.Category),
+                    KontentConfig.Get<Product,ITaxonomyTerm[]>(post => post.Category.ToArray())),
                 new SetDestination(KontentConfig.Get((Product page) => new NormalizedPath( page.Url ))),
                 /*new SetMetadata(SearchIndex.SearchItemKey, Config.FromDocument((doc, ctx) =>
                 {
