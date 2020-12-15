@@ -1,0 +1,17 @@
+@using Planty.Models
+@model Planty.Models.TestimonialsSection
+<section class="content__row" data-id="@Model.System.Id">
+    <h2 class="content__row-title">Testimonials</h2>
+    <div class="quotes">
+        @foreach (var testimonial in Model.Testimonials.OfType<Testimonial>())
+        {
+            <div class="quotes__item">
+                <img src="@Html.GetLink("images/quotes.svg")" alt="quotation mark icon" class="quotes__icon">
+                <div class="quotes__text">@Html.DisplayFor(m => testimonial.Content)</div>
+                <div class="quotes__author">@testimonial.Name<span class="quotes__location">, @testimonial.Location</span></div>
+            </div>
+            <div class="quotes__separator"></div>
+        }
+    </div>
+</section>
+

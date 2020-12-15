@@ -1,4 +1,5 @@
 @using Kontent.Statiq.Html
+@using Kentico.Kontent.ImageTransformation
 @model Planty.Models.Product
 <main class="content">
     <article class="product content__row content__row--full-width">
@@ -14,19 +15,18 @@
             </a>
         </div>
         <figure class="product__figure">
-            <planty-picture src="@Model.Image.First().Url" alt="@Model.Title" css-class="product__image"/>
+            <planty-picture src="@Model.Image.First().ImageUrl().WithWidth(520).WithHeight(520).WithFitMode(ImageFitMode.Crop).Url" alt="@Model.Title" css-class="product__image"/>
         </figure>
         <div class="product__details">
             <h1 class="product__title">
                 @Model.Title
             </h1>
-            @* TODO : categories
-        {% if page.params.category %}
-            {% set category_page = getPageByFilePath(page.params.category) %}
-            <h2 class="product__category">
-                <a href="{{ category_page.url | relative_url }}"> {{ category_page.title }} </a>
-            </h2>
-        {% endif %}*@
+            @if (Model.Category.Any())
+            {
+                <h2 class="product__category">
+                    <a href="@Html.GetLink($"/category/{Model.Category.First().Codename}")"> @Model.Category.First().Name </a>
+                </h2>
+            }
             <div class="product__price">
                 <price value="Model.Price" />
             </div>
