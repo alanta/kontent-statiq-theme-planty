@@ -1,0 +1,9 @@
+﻿@model Planty.Models.HeaderSection
+
+
+<section class="content__row header-section__header" style="@( Model.BackgroundImage.Any() ? $"background-image: url({Model.BackgroundImage.First().Url})" : "")" data-id="@Model.System.Id">
+    <h1 class="header-section__title content__row">@Model.Headline</h1>
+    <div class="content__row header-section__content">
+        @Html.DisplayFor(m => m.Subtitle)
+    </div>
+</section>

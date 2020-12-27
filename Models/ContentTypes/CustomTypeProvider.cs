@@ -9,8 +9,11 @@ namespace Planty.Models
     {
         private static readonly Dictionary<Type, string> _codenames = new Dictionary<Type, string>
         {
+            {typeof(BulletPoint), "bullet_point"},
+            {typeof(BulletPointsSection), "bullet_points_section"},
             {typeof(CallToAction), "call_to_action"},
             {typeof(FeaturedProductsSection), "featured_products_section"},
+            {typeof(HeaderSection), "header_section"},
             {typeof(HeroSection), "hero_section"},
             {typeof(MenuItem), "menu_item"},
             {typeof(Page), "page"},

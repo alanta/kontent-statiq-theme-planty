@@ -1,9 +1,0 @@
-{% set image = include_dict.image %}
-{% set alt = include_dict.alt %}
-{% set cssClass = include_dict.cssClass %}
-
-{% if image %}
-<picture>
-  <img src="{{ image | relative_url }}" {% if alt %}alt="{{ alt }}"{% endif %}  {% if cssClass %}class="{{ cssClass }}"{% endif %}>
-</picture>
-{% endif %}

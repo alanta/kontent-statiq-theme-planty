@@ -1,0 +1,16 @@
+@using Planty.Models
+@using Kentico.Kontent.Delivery.Abstractions
+@model Planty.Models.BulletPointsSection
+<section class="content__row bulletpoints__section" data-id="@Model.System.Id">
+    @foreach(var bulletPoint in Model.BulletPoints.OfType<IInlineContentItem>().Select( x=> x.ContentItem).OfType<BulletPoint>()){
+        <section class="content__row bulletpoint__section">
+            <planty-picture alt="@bulletPoint.Title" css-class="bulletpoint__section-image" src="@bulletPoint.Image.First().Url" />
+            <div class="bulletpoint__section-content-container">
+                <h2 class="bulletpoint__section-title">@bulletPoint.Title</h2>
+                <div class="bulletpoint__section-content">
+                    @Html.DisplayFor(_ => bulletPoint.Description)
+                </div>
+            </div>
+        </section>
+    }
+</section>

@@ -70,7 +70,7 @@ namespace Planty.Pipelines
 
     public class TaxonomyTermComparer : IEqualityComparer<ITaxonomyTerm>
     {
-        public bool Equals(ITaxonomyTerm x, ITaxonomyTerm y)
+        public bool Equals(ITaxonomyTerm? x, ITaxonomyTerm? y)
         {
             if (ReferenceEquals(x, y)) return true;
             if (ReferenceEquals(x, null)) return false;
