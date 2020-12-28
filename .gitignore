@@ -4,3 +4,5 @@ node_modules
 bin
 obj
 output
+.vs
+Planty.Generator.sln.DotSettings.user
