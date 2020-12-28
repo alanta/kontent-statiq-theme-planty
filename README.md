@@ -1,92 +1,80 @@
-![logo](https://snipcart.com/media/204485/logo.svg)
+![logo](https://github.com/alanta/kontent-statiq-theme-planty/raw/main/input/images/logo.svg)
 
-# Planty Stackbit theme
+# Planty Kontent Statiq Theme
 
-[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/snipcart/stackbit-theme-planty&ssg=jekyll)
+This theme can be used to create an e-commerce ready website. You'll get everything you need from products listing, categorization, FAQ, etc.
 
-Planty is an e-commerce ready custom theme for Stackbit created by [Snipcart](http://bit.ly/2YB7AUL).
+You can see it in action right [here](https://alanta.github.io/kontent-statiq-theme-planty/).
 
-This theme can be used to create an e-commerce ready website through Stackbit's platform. You'll get
-everything you need from products listing, categorization, FAQ, etc.
+This theme uses [Kontent](https://kontent.ai) headless CMS, [Statiq](https://statiq.dev) site generator and [SnipCart](https://snipcart.com) e-commerce.
 
-You can see it in action right [here](https://stackbit-theme-planty.netlify.com).
+## Features
 
-> To learn more about Stackbit and its custom themes feature, [read this post](http://bit.ly/2YAvGix).
+* Product management within Kontent
+* Pages with sections
+  * Sections: Hero, Header, Bullet points, Promotion, Store, Testimonials
+  * Taxonomy : Tags and Categories
+  * Ratings
+* SEO support: open graph & twitter cards
 
-## How to get started
+## Getting Started
 
-In Stackbit's custom themes importer, just use this repository URL. For the moment, this theme works only with Jekyll but will soon work with other static site generators supported by Stackbit.
+### Requirements
 
-## Theme configuration
+- [.NET Core 3.1](https://dotnet.microsoft.com/download)
 
-> Please note that the screenshots below have been taken in Forestry, you can use Forestry as headless CMS for your project if you want, but this also work with other CMSs.
+### Clone the codebase
 
-### Configuring Snipcart
+1. Click the ["Use this template"](https://github.com/alanta/kontent-statiq-theme-planty/generate) button to [create your own repository from this template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
 
-First thing is to enter your Snipcart API key. Open your CMS and go to `Global site config`.
+### Running locally
 
-![api-key](https://snipcart.com/media/204516/config_api_key.png)
+- `dotnet run -- preview`
+  - You can also emulate running the project in a virtual directory by appending `--virtual-dir memoirs`. See all preview [options](https://statiq.dev/web/running/preview-server).
+- Go to `http://localhost:5080/`
 
-Use your **public** API key in there.
+🎊🎉 **You are now ready to explore the code base!**
 
-### Logos
+> By default, the content is loaded from a shared Kentico Kontent project. If you want to use your own clone of the project so that you can customize it and experiment with Kontent, continue to the next section.
 
-Logos can be updated via the CMS as well. You'll be asked to provide a dark and a light logo.
+### Create a content source
 
-![logo](https://snipcart.com/media/204518/config_logos.png)
+1. Go to [app.kontent.ai](https://app.kontent.ai) and [create an empty project](https://docs.kontent.ai/tutorials/set-up-kontent/projects/manage-projects#a-creating-projects)
+1. Go to the "Project Settings", select API keys and copy the following keys for further reference
+    - Project ID
+    - Management API key
+1. Use the [Template Manager UI](https://kentico.github.io/kontent-template-manager/import) for importing the content from [`content.zip`](./content.zip) file and API keys from previous step. Check *Publish language variants after import* option before import.
 
-### Styles configuration
+    > Alternatively, you can use the [Kontent Backup Manager](https://github.com/Kentico/kontent-backup-manager-js) and import data to the newly created project from [`content.zip`](./content.zip) file via command line:
+    >
+    >   ```sh
+    >    npm i -g @kentico/kontent-backup-manager
+    >
+    >    kbm --action=restore --projectId=<Project ID> --apiKey=<Management API key> --zipFilename=content
+    >    ```
+    >
+    > Go to your Kontent project and [publish all the imported items](https://docs.kontent.ai/tutorials/write-and-collaborate/publish-your-work/publish-content-items).
 
-Colors can be managed via the CMS as well. Under `Global site config` section, open `Styles config`. You'll see all colors used throughout the theme listed here. Adjust them for your own branding.
+1. Map the codebase to the data source
+    - adjust the `DeliveryOptions:ProjectId` key in `appSettings.json`
 
-![styles-config](https://snipcart.com/media/204508/config_styles.png)
+🚀 **You are now ready to use the site with your own Kentico Kontent project as data source!**
 
-You can also configure background images in there.
+### Production deployment to GitHub pages
 
-![background-images](https://snipcart.com/media/204517/config_backgroundimages.png)
+- Enable GitHub actions in your repo
+- Copy the [`.github/workflows/dotnet-core.yml`](https://github.com/alanta/kontent-statiq-theme-planty/blob/master/.github/workflows/dotnet-core.yml) to your project
+- Go to the repository secrets and set:
+  - [`LinkRoot`](https://statiq.dev/framework/configuration/settings) to the relative path of your project (e.g. `/kontent-statiq-theme-planty`) - this is to ensure that all links work properly when deployed to a subfolder
+  - [`Host`](https://statiq.dev/framework/configuration/settings) to the domain of your project (e.g. `domain.tld`) - this is to ensure that absolute links are generated where required
 
-### Categories
+## Customizing
 
-Each product can be associated to a category. Open the Categories section and manage them there.
+* Open `appsettings.json` to tweak the site name etc.
+* _TODO_
 
-![categories](https://snipcart.com/media/204510/list_categories.png)
+## Credits 
 
-### Products
+This was forked from the Planty e-commerce theme for Stackbit created by [Snipcart](http://bit.ly/2YB7AUL), kudos to the Snip Cart team for building this.
 
-Products can be managed directly through the CMS via the Products section.
-
-![products](https://snipcart.com/media/204511/list_products.png)
-
-Products have several properties available, both for Snipcart and for the theme. You can define its price, description, name, ID, etc.
-
-You can also define if this is a **featured** product, meaning that it will show in the Best sellers section on the site. A feature product will use the Feature images set.
-
-![product-details](https://snipcart.com/media/204514/product_details.png)
-
-### Promotion
-
-The promotion is a component displayed just above the footer on some pages. You can configure what to show in that box via the CMS.
-
-![promotion](https://snipcart.com/media/204504/components_promotion.png)
-
-You can define a Call to action for the promotion, it's usually a link to a section of your site.
-
-![promotion-cta](https://snipcart.com/media/204505/components_promotion_cta.png)
-
-### Testimonials
-
-You can manage testimonials to show on the site via this section.
-
-![testimonials](https://snipcart.com/media/204506/components_testimonials.png)
-
-### About
-
-Manage the content of the About section here.
-
-![about](https://snipcart.com/media/204512/pages_about.png)
-
-### FAQ
-
-Manage your FAQ entries in this section.
-
-![faq](https://snipcart.com/media/204513/pages_faq.png)
+Some images were provided by [Pexels](https://www.pexels.com/)
