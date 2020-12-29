@@ -6,7 +6,7 @@
 
 <section class="content__row" data-id="@Model.System.Id">
     <div class="content__row content__row--direction-row store__head">
-        <h1 class="store__title">All Products</h1>
+        <h1 class="store__title">@(ViewBag.Title ?? "All products") </h1>
     </div>
 
     <div class="content__row store__container">
@@ -15,7 +15,7 @@
                 @foreach (var menuItem in categories)
                 {
                     <li class="store__nav-item">
-                        <a href="@menuItem.Url" class="store__nav-item-link @(menuItem.Active?"store__nav-item-link--active":"")">
+                        <a href="@Html.GetLink(menuItem.Url)" class="store__nav-item-link @(menuItem.Active?"store__nav-item-link--active":"")">
                             @menuItem.Title
                         </a>
                     </li>
