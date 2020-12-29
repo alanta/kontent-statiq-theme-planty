@@ -10,13 +10,14 @@ namespace Planty.TagHelpers
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "span";
+            output.TagMode = TagMode.StartTagAndEndTag;
             if (Value.HasValue)
             {
-                output.Content.SetContent( string.Format(CultureInfo.InvariantCulture, "&euro;{0:N2}", Value.Value)); // TODO : currency and locale
+                output.Content.SetHtmlContent(string.Format(CultureInfo.InvariantCulture, "&euro;{0:N2}", Value.Value)); // TODO : currency and locale
             }
             else
             {
-                output.Content.SetContent("TBA");
+                output.Content.SetHtmlContent("TBA");
             }
         }
     }

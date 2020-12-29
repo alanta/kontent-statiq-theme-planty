@@ -19,6 +19,7 @@ namespace Planty.Models
         public const string ImageCodename = "image";
         public const string PriceCodename = "price";
         public const string ProductIdCodename = "product_id";
+        public const string RelatedProductsCodename = "related_products";
         public const string SectionCodename = "section";
         public const string SettingsCodename = "settings";
         public const string SlugCodename = "slug";
@@ -30,6 +31,7 @@ namespace Planty.Models
         public IEnumerable<IAsset> Image { get; set; }
         public decimal? Price { get; set; }
         public string ProductId { get; set; }
+        public IEnumerable<object> RelatedProducts { get; set; }
         public IEnumerable<object> Section { get; set; }
         public IEnumerable<IMultipleChoiceOption> Settings { get; set; }
         public string Slug { get; set; }
