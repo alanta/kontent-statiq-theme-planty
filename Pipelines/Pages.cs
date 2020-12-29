@@ -14,7 +14,7 @@ namespace Planty.Pipelines
     {
         public Pages(IDeliveryClient deliveryClient, SiteSettings settings)
         {
-            Dependencies.Add(nameof(Site));
+            Dependencies.AddRange(nameof(Site), nameof(Categories));
             InputModules = new ModuleList
             {
                 new Kontent<Page>(deliveryClient)
@@ -45,6 +45,18 @@ namespace Planty.Pipelines
                         site.Settings = settings;
                         return site;
                     }))
+                    .WithViewData(PlantyKeys.Categories, Config.FromDocument( (doc,ctx) =>
+                    {
+                        var categories = ctx.Outputs.FromPipeline(nameof(Categories))
+                            .First()[PlantyKeys.Categories] as ITaxonomyTerm[];
+
+                        return categories.Select(category =>
+                                new CategoryMenuItem(category, true))
+                            .ToArray();
+                    } ))
+                    .WithViewData(PlantyKeys.Products, Config.FromContext( ctx => 
+                        ctx.Outputs.FromPipeline(nameof(Products)).Select( p => p.AsKontent<Product>() ).ToArray() ) 
+                    )
                     .WithViewData(PlantyKeys.Title, KontentConfig.Get<Page,string>( p => p.Title ))
                     .WithModel(KontentConfig.As<Page>()),
                 new KontentImageProcessor(),

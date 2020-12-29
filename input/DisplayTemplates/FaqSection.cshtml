@@ -1,0 +1,16 @@
+﻿@using Kentico.Kontent.Delivery.Abstractions
+@using Planty.Models
+@model Planty.Models.FaqSection
+<section class="content__row faq__section" data-id="@Model.System.Id">
+@foreach (var question in Model.Questions.Blocks.OfType<IInlineContentItem>().Select(i => i.ContentItem).OfType<FrequentlyAskedQuestion>())
+{
+    <section class="content__row faq__section">
+        <div class="faq__section-content-container">
+            <h2 class="faq__question">@question.Question</h2>
+            <div class="faq__answer">
+                @Html.DisplayFor(_ => question.Answer)
+            </div>
+        </div>
+    </section>
+}
+</section>
