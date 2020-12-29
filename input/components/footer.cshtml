@@ -6,7 +6,7 @@
 <footer class="footer">
     <div class="footer__container">
         <a href="@Html.GetLink("/")">
-            <planty-picture src="@site.Settings.LogoLight" css-class="footer_logo" alt="Planty logo" />
+            <planty-picture src="@Html.GetLink(site.Settings.LogoLight)" css-class="footer__logo" alt="Planty logo" />
         </a>
         <ul class="footer__nav">
             @foreach( var menuItem in site.MainMenu.OfType<MenuItem>() )
