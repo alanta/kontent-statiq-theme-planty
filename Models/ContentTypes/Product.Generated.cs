@@ -13,29 +13,49 @@ namespace Planty.Models
     public partial class Product
     {
         public const string Codename = "product";
+        public const string CartOptionsCodename = "cart_options";
         public const string CategoryCodename = "category";
         public const string ContentCodename = "content";
+        public const string DefaultQuantityCodename = "default_quantity";
         public const string DescriptionCodename = "description";
+        public const string HeightCodename = "height";
         public const string ImageCodename = "image";
+        public const string LengthCodename = "length";
+        public const string MaximumQuantityCodename = "maximum_quantity";
+        public const string MinimumQuantityCodename = "minimum_quantity";
         public const string PriceCodename = "price";
         public const string ProductIdCodename = "product_id";
+        public const string ProductPropertiesCodename = "product_properties";
+        public const string QuantityStepCodename = "quantity_step";
         public const string RelatedProductsCodename = "related_products";
         public const string SectionCodename = "section";
         public const string SettingsCodename = "settings";
         public const string SlugCodename = "slug";
         public const string TitleCodename = "title";
+        public const string WeightCodename = "weight";
+        public const string WidthCodename = "width";
 
+        public IEnumerable<object> CartOptions { get; set; }
         public IEnumerable<ITaxonomyTerm> Category { get; set; }
         public IRichTextContent Content { get; set; }
+        public decimal? DefaultQuantity { get; set; }
         public string Description { get; set; }
+        public decimal? Height { get; set; }
         public IEnumerable<IAsset> Image { get; set; }
+        public decimal? Length { get; set; }
+        public decimal? MaximumQuantity { get; set; }
+        public decimal? MinimumQuantity { get; set; }
         public decimal? Price { get; set; }
         public string ProductId { get; set; }
+        public IEnumerable<ITaxonomyTerm> ProductProperties { get; set; }
+        public decimal? QuantityStep { get; set; }
         public IEnumerable<object> RelatedProducts { get; set; }
         public IEnumerable<object> Section { get; set; }
         public IEnumerable<IMultipleChoiceOption> Settings { get; set; }
         public string Slug { get; set; }
         public IContentItemSystemAttributes System { get; set; }
         public string Title { get; set; }
+        public decimal? Weight { get; set; }
+        public decimal? Width { get; set; }
     }
 }

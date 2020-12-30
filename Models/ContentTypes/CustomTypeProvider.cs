@@ -21,6 +21,7 @@ namespace Planty.Models
             {typeof(MenuItem), "menu_item"},
             {typeof(Page), "page"},
             {typeof(Product), "product"},
+            {typeof(ProductProperty), "product_property"},
             {typeof(PromotionSection), "promotion_section"},
             {typeof(Site), "site"},
             {typeof(StoreSection), "store_section"},
