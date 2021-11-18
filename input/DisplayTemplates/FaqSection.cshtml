@@ -2,7 +2,7 @@
 @using Planty.Models
 @model Planty.Models.FaqSection
 <section class="content__row faq__section" data-id="@Model.System.Id">
-@foreach (var question in Model.Questions.Blocks.OfType<IInlineContentItem>().Select(i => i.ContentItem).OfType<FrequentlyAskedQuestion>())
+@foreach (var question in Model.Questions.OfType<IInlineContentItem>().Select(i => i.ContentItem).OfType<FrequentlyAskedQuestion>())
 {
     <section class="content__row faq__section">
         <div class="faq__section-content-container">
