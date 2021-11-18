@@ -13,6 +13,7 @@ namespace Planty.Pipelines
             InputModules = new ModuleList
             {
                 new ReadFiles(
+                    "vercel.json",
                     "js/lib/*",
                     "js/*.js",
                     "js/*.vue",
