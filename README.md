@@ -21,7 +21,7 @@ This theme uses [Kontent](https://kontent.ai) headless CMS, [Statiq](https://sta
 
 ### Requirements
 
-- [.NET Core 3.1](https://dotnet.microsoft.com/download)
+- [.NET 6](https://dotnet.microsoft.com/download)
 
 ### Clone the codebase
 
