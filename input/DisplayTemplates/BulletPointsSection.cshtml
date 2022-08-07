@@ -1,5 +1,5 @@
 @using Planty.Models
-@using Kentico.Kontent.Delivery.Abstractions
+@using Kontent.Ai.Delivery.Abstractions
 @model Planty.Models.BulletPointsSection
 <section class="content__row bulletpoints__section" data-id="@Model.System.Id">
     @foreach(var bulletPoint in Model.BulletPoints.OfType<IInlineContentItem>().Select( x=> x.ContentItem).OfType<BulletPoint>()){
