@@ -1,5 +1,5 @@
-using Kentico.Kontent.Delivery.Abstractions;
-using Kentico.Kontent.Urls.Delivery.QueryParameters;
+using Kontent.Ai.Delivery.Abstractions;
+using Kontent.Ai.Urls.Delivery.QueryParameters;
 using Kontent.Statiq;
 using Statiq.Common;
 using Statiq.Core;

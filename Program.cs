@@ -1,6 +1,6 @@
-﻿using Kentico.Kontent.Delivery.Abstractions;
+﻿using Kontent.Ai.Delivery.Abstractions;
 using System.Threading.Tasks;
-using Kentico.Kontent.Delivery.Extensions;
+using Kontent.Ai.Delivery.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Planty.Models;

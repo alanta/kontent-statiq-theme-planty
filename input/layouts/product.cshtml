@@ -1,5 +1,5 @@
 @using Kontent.Statiq.Html
-@using Kentico.Kontent.Urls.ImageTransformation
+@using Kontent.Ai.Urls.ImageTransformation
 @using Planty.Models
 @model Planty.Models.Product
 <main class="content">
@@ -24,8 +24,8 @@
             </h1>
             @if (Model.Category.Any())
             {
-                <h2 class="product__category">
                     <a href="@Html.GetLink($"/category/{Model.Category.First().Codename}")"> @Model.Category.First().Name </a>
+                <h2 class="product__category">
                 </h2>}
             <div class="product__price">
                 <price value="Model.Price" />
